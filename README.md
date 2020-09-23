@@ -1,2 +1,2 @@
 # made_2020_lsml
-Repo big data and machine learning
+Repo large scale machine learning
