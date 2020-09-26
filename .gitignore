@@ -1,3 +1,5 @@
 *.pdf
 book\*
 *.doc
+HW_*.pdf
+*.odt
