@@ -11,7 +11,7 @@ from sys import stdin
 
 def process_line():
     """Process input line."""
-    pass
+    pass  # TODO: write function implementation.
 
 
 def process_data():
