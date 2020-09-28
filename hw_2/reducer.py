@@ -58,3 +58,7 @@ def compute_mean_var():
         args = [size, current_mean, current_var, chunk_size, new_mean, new_var]
         size, current_mean, current_var = update_stats(args)
     print(f"Price mean {current_mean} with var {current_var}")
+
+
+if __name__ == "__main__":
+    compute_mean_var()
