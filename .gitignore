@@ -3,3 +3,5 @@ book\*
 HW*.pdf
 *.odt
 Lesson_*.pdf
+*.ipynb
+hw_2/.ipynby_*
