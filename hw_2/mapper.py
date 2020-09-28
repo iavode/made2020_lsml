@@ -14,7 +14,7 @@ def process_line():
     pass  # TODO: write function implementation.
 
 
-def compute_stat_vals(mean: int, vals: list) -> tuple:
+def compute_static_params(mean: int, vals: list) -> tuple:
     """Compute chunk size, mean and var."""
     size = len(vals)
     mean /= float(size)
@@ -30,7 +30,7 @@ def process_data():
         if not isnan(val):
             mean += val()
             vals.append(val ** 2)
-    size, mean, var = compute_stat_vals(mean, vals)
+    size, mean, var = compute_static_params(mean, vals)
     print(size, mean, var)
 
 
