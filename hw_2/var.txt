@@ -1,0 +1,1 @@
+Column price have mean value: 57674.025246961. Calculated by applying pandas var.
