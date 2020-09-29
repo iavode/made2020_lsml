@@ -32,7 +32,7 @@ def write(mean, var):
 
 def output_prices(prices):
     """Output interested columns."""
-    _ = (print(val, end="\n") for val in prices.values)
+    _ = [print(val, end="\n") for val in prices.values]
 
 
 def run():
