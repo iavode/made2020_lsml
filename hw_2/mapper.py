@@ -15,20 +15,20 @@ def process_line(line) -> int:
     if isinstance(line, str):
         # check: line is number?
         try:
-            return int(line)
+            return float(line)
         except ValueError:
             return None
 
 
 def compute_static_params(mean: int, vals: list) -> tuple:
     """Compute chunk size, mean and var."""
-    size = float(len(vals))
+    size = len(vals)
     if size:
         mean /= size
     else:
         return 0, 0, 0
     var = sum(vals) / size - mean**2  # fast var computing
-    return int(size), mean, var
+    return size, mean, var
 
 
 def get_line():
