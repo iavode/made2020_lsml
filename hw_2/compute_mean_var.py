@@ -11,8 +11,6 @@ from pandas import read_csv
 def get_column(column):
     """Get column from dataset."""
     colum_vals = read_csv("AB_NYC_2019.csv")[column]
-    vals = "\n".join((str(val) for val in colum_vals.values))
-    print(vals)
     return colum_vals
 
 
@@ -32,11 +30,18 @@ def write(mean, var):
         var_fout.write("Calculated by applying pandas var.")
 
 
+def output_prices(prices):
+    """Output interested columns."""
+    _ = (print(val, end="\n") for val in prices.values)
+
+
 def run():
     """Main function in script"""
-    price = get_column(column="price")
-    mean, var = compute_mean_var(price)
+    prices = get_column(column="price")
+    mean, var = compute_mean_var(prices)
     write(round(mean, 9), round(var, 9))
+    output_prices(prices)
+
 
 
 if __name__ == "__main__":
