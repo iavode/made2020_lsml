@@ -13,9 +13,11 @@ def process_line(line) -> int:
     """Process input line."""
     # check input line type
     if isinstance(line, str):
-        # check line lenght, price can not be to long
-        if len(line) < 10:
+        # check: line is number?
+        try:
             return int(line)
+        except ValueError:
+            return None
 
 
 def compute_static_params(mean: int, vals: list) -> tuple:
