@@ -14,7 +14,7 @@ def process_line(line) -> int:
     # check input line type
     if isinstance(line, str):
         # check line lenght, price can not be to long
-        if len(line) < 5:
+        if len(line) < 10:
             return int(line)
 
 
@@ -43,7 +43,6 @@ def process_data():
         if val and not isnan(val):
             mean += val
             vals.append(val**2)
-    print(mean)
     size, mean, var = compute_static_params(mean, vals)
     print(size, mean, var)
 
