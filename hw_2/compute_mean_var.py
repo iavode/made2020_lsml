@@ -43,6 +43,5 @@ def run():
     output_prices(prices)
 
 
-
 if __name__ == "__main__":
     run()
