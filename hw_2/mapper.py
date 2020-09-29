@@ -20,13 +20,13 @@ def process_line(line) -> int:
 
 def compute_static_params(mean: int, vals: list) -> tuple:
     """Compute chunk size, mean and var."""
-    size = len(vals)
-    try:
-        mean /= float(size)
-    except ZeroDivisionError:
+    size = float(len(vals))
+    if size:
+        mean /= size
+    else:
         return 0, 0, 0
-    var = sum(vals) / float(size) - mean ** 2  # fast var computing
-    return size, mean, var
+    var = sum(vals) / size - mean**2  # fast var computing
+    return int(size), mean, var
 
 
 def get_line():
@@ -40,9 +40,10 @@ def process_data():
     mean, vals = 0, []
     for line in get_line():
         val = process_line(line)
-        if not isnan(val):
-            mean += val()
-            vals.append(val ** 2)
+        if val and not isnan(val):
+            mean += val
+            vals.append(val**2)
+    print(mean)
     size, mean, var = compute_static_params(mean, vals)
     print(size, mean, var)
 
