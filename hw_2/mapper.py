@@ -22,7 +22,7 @@ def compute_static_params(mean: int, vals: list) -> tuple:
     """Compute chunk size, mean and var."""
     size = len(vals)
     mean /= float(size)
-    var = sum(vals) / float(size) - mean ** 2
+    var = sum(vals) / float(size) - mean ** 2  # fast var computing
     return size, mean, var
 
 
