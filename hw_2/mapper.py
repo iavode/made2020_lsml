@@ -9,9 +9,13 @@ from math import isnan
 from sys import stdin
 
 
-def process_line():
+def process_line(line) -> int:
     """Process input line."""
-    pass  # TODO: write function implementation.
+    # check input line type
+    if isinstance(line, str):
+        # check line lenght, price can not be to long
+        if len(line) < 5:
+            return int(line)
 
 
 def compute_static_params(mean: int, vals: list) -> tuple:
@@ -20,6 +24,12 @@ def compute_static_params(mean: int, vals: list) -> tuple:
     mean /= float(size)
     var = sum(vals) / float(size) - mean ** 2
     return size, mean, var
+
+
+def get_line():
+    """Generator for input line."""
+    for line in stdin:
+        yield line
 
 
 def process_data():
