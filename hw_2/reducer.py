@@ -8,7 +8,7 @@ Created on Mon Sep 28 21:05:06 2020.
 from sys import stdin
 
 
-def _compute_var(*args):
+def _compute_var(*args: list):
     """Compute new var value."""
     size, current_mean, current_var, chunk_size, new_mean, new_var = args
     var = size * current_var + chunk_size * new_var
@@ -18,7 +18,7 @@ def _compute_var(*args):
     return var
 
 
-def _compute_mean(*args):
+def _compute_mean(*args: list):
     """Compute new mean value."""
     chunk_size, current_mean, new_chunk_size, new_mean = args
     mean = chunk_size * current_mean + new_chunk_size * new_mean
@@ -26,7 +26,7 @@ def _compute_mean(*args):
     return mean
 
 
-def update_stats(*args):
+def update_stats(*args: list):
     """Update stats params with new."""
     size, current_mean, current_var, chunk_size, new_mean, _ = args
     # init params for for function _compute_var(args)
@@ -38,14 +38,15 @@ def update_stats(*args):
     return size, current_mean, current_var
 
 
-def process_line(line):
+def process_line(line: str):
     """Get line and process it."""
-    line = line.split(" ")
-    chunk_size, mean, var = line
+    line = line.rstrip("\n")  # del \n
+    line = line.split(" ")  # split input line
+    chunk_size, mean, var = tuple(map(int, line))
     return chunk_size, mean, var
 
 
-def compute_mean_var():
+def compute_static_params():
     """
     Compute mean and val for all dataset.
 
@@ -61,4 +62,4 @@ def compute_mean_var():
 
 
 if __name__ == "__main__":
-    compute_mean_var()
+    compute_static_params()
