@@ -26,8 +26,8 @@ def _compute_mean(*args: list):
     return mean
 
 
-def update_stats(*args: list):
-    """Update stats params with new."""
+def update_static_params(*args: list):
+    """Update static params with new data."""
     size, current_mean, current_var, chunk_size, new_mean, _ = args
     # init params for for function _compute_var(args)
     args_for_mean = [size, current_mean, chunk_size, new_mean]
@@ -57,7 +57,7 @@ def compute_static_params():
         chunk_size, new_mean, new_var = process_line(line)
         # init params for for function compute_var(args)
         args = [size, current_mean, current_var, chunk_size, new_mean, new_var]
-        size, current_mean, current_var = update_stats(args)
+        size, current_mean, current_var = update_static_params(args)
     print(f"Price mean {current_mean} with var {current_var}")
 
 
