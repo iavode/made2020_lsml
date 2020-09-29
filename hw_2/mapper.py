@@ -38,7 +38,7 @@ def get_line():
 def process_data():
     """Process input data."""
     mean, vals = 0, []
-    for line in get_line:
+    for line in get_line():
         val = process_line(line)
         if not isnan(val):
             mean += val()
