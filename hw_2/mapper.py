@@ -12,12 +12,14 @@ from sys import stdin
 def process_line(line) -> int:
     """Process input line."""
     # check input line type
-    if isinstance(line, str):
-        # check: line is number?
-        try:
-            return float(line)
-        except ValueError:
-            return None
+    try:
+        price = int(line.strip().split(",")[-7])
+        print(price)
+        return price
+    except ValueError:
+        raise ValueError
+    except IndexError:
+        IndexError
 
 
 def compute_static_params(mean: int, vals: list) -> tuple:
@@ -31,21 +33,27 @@ def compute_static_params(mean: int, vals: list) -> tuple:
     return size, mean, var
 
 
-def get_line():
+def get_lines():
     """Generator for input line."""
-    for line in stdin:
-        yield line
+    with open("AB_NYC_2019.csv", "r", encoding="utf-8") as fin:
+        return fin.readlines()
+        for line in stdin:
+            yield line
 
 
 def process_data():
     """Process input data."""
-    mean, vals = 0, []
-    for line in get_line():
-        val = process_line(line)
-        if val and not isnan(val):
-            mean += val
-            vals.append(val**2)
-    size, mean, var = compute_static_params(mean, vals)
+    mean, prices = 0, []
+    for line in get_lines():
+        try:
+            price = process_line(line)
+            mean += price
+            prices.append(price**2)
+        except ValueError:
+            continue
+        except IndexError:
+            continue
+    size, mean, var = compute_static_params(mean, prices)
     print(size, mean, var)
 
 
