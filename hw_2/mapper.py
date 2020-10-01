@@ -14,7 +14,6 @@ def process_line(line) -> int:
     # check input line type
     try:
         price = int(line.strip().split(",")[-7])
-        print(price)
         return price
     except ValueError:
         raise ValueError
@@ -36,7 +35,7 @@ def compute_static_params(mean: int, vals: list) -> tuple:
 def get_lines():
     """Generator for input line."""
     with open("AB_NYC_2019.csv", "r", encoding="utf-8") as fin:
-        return fin.readlines()
+        stdin = fin.readlines()
         for line in stdin:
             yield line
 
@@ -52,6 +51,8 @@ def process_data():
         except ValueError:
             continue
         except IndexError:
+            continue
+        except TypeError:
             continue
     size, mean, var = compute_static_params(mean, prices)
     print(size, mean, var)
