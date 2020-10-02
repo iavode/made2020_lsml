@@ -9,4 +9,4 @@ hw_2/.ipynby_*
 test_*.py
 *.csv
  parse_string.py
-*.txt
+hw_2/*.txt
