@@ -8,5 +8,5 @@ hw_2/.ipynby_*
 *.csv
 test_*.py
 *.csv
- parse_string.py
-hw_2/*.txt
+hw_2/parse_string.py
+*.txt
