@@ -8,3 +8,4 @@ hw_2/.ipynby_*
 *.csv
 test_*.py
 *.csv
+ parse_string.py
