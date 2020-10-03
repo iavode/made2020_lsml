@@ -42,9 +42,16 @@ def process_line(line: str):
     """Get line and process it."""
     print(line)
     line = line.rstrip("\n")  # del \n
-    line = line.split(" ")  # split input line
-    chunk_size, mean, var = tuple(map(float, line))
+    line = line.split("\t")[0][1:-1]  # split input line and get key value
+    # get size, mean var
+    chunk_size, mean, var = tuple(map(float, line.split(", ")))
     return chunk_size, mean, var
+
+
+def get_lines(file):
+    """Generator line from file."""
+    for line in file:
+    	yield line
 
 
 def compute_static_params():
@@ -52,14 +59,15 @@ def compute_static_params():
     Compute data mean and var in mapreduce style.
     """
     size, current_mean, current_var = 0, 0, 0  # init values for static prams
-    for line in stdin:
+    lines = get_lines(stdin)	
+    for line in lines:
         chunk_size, new_mean, new_var = process_line(line)
         # init params for for function update_static_params
         args = [size, current_mean, current_var, chunk_size, new_mean, new_var]
         # update static params by curent chunk values
         size, current_mean, current_var = update_static_params(*args)
-    print(f"Price mean {current_mean}")
-    print(f"Price var {current_var}")
+    print(f"Price mean\t{current_mean}")
+    print(f"Price var\t{current_var}")
 
 
 if __name__ == "__main__":
