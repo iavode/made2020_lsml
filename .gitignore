@@ -10,3 +10,4 @@ test_*.py
 *.csv
 hw_2/parse_string.py
 *.txt
+emr.pem
