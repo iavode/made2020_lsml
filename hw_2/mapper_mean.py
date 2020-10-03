@@ -26,16 +26,17 @@ def compute_static_params(prices_sum: int, prices_squad: list) -> tuple:
     return size, mean, var
 
 
-def get_line():
-    """Generator for input line."""
-    for line in stdin:
+def get_line(lines):
+    """Generate for input line."""
+    for line in lines:
         yield line
 
 
 def process_data():
     """Process input data."""
     prices_sum, prices_squad = 0, []
-    for line in get_line():
+    lines = get_line(stdin)
+    for line in lines:
         try:
             price = process_line(line)
             prices_sum += price
@@ -46,12 +47,8 @@ def process_data():
             continue
     # compute chunk size, mean, var
     size, mean, var = compute_static_params(prices_sum, prices_squad)
-    print(size, mean, var)
-
-
-def generator(data):
-    for val in data:
-        yield val
+    print((size, mean, var), end="\t")
+    print(1)
 
 
 if __name__ == "__main__":
