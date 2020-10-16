@@ -11,3 +11,5 @@ test_*.py
 hw_2/parse_string.py
 *.txt
 emr.pem
+*.docx
+*.zip
