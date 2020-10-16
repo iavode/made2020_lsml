@@ -30,7 +30,7 @@ def update_static_params(*args):
     """Update static params with new data."""
     current_size, current_mean, current_var, chunk_size, new_mean, _ = args
     # init params for for function _compute_var(args)
-    args_for_mean = [current_size, current_mean, chunk_size, new_mean]
+    args_for_mean = (current_size, current_mean, chunk_size, new_mean)
     # params for _compute_var() equal input params
     current_mean = _compute_mean(*args_for_mean)  # update current mean
     current_var = _compute_var(*args)  # update current var
@@ -40,9 +40,8 @@ def update_static_params(*args):
 
 def process_line(line: str):
     """Get line and process it."""
-    print(line)
     line = line.rstrip("\n")  # del \n
-    line = line.split("\t")[0][1:-1]  # split input line and get key value
+    line = line.split("\t")[1]  # split input line and get key value
     # get size, mean var
     chunk_size, mean, var = tuple(map(float, line.split(", ")))
     return chunk_size, mean, var
@@ -63,12 +62,12 @@ def compute_static_params():
     for line in lines:
         chunk_size, new_mean, new_var = process_line(line)
         # init params for for function update_static_params
-        args = [size, current_mean, current_var, chunk_size, new_mean, new_var]
+        args = (size, current_mean, current_var, chunk_size, new_mean, new_var)
         # update static params by curent chunk values
         size, current_mean, current_var = update_static_params(*args)
-    print(f"Price mean\t{current_mean}")
-    print(f"Price var\t{current_var}")
+    print(f"Price var\t{round(current_var, 12)}")
 
 
 if __name__ == "__main__":
     compute_static_params()
+

@@ -15,15 +15,13 @@ def process_line(line) -> int:
     return price
 
 
-def compute_static_params(prices_sum: int, prices_squad: list) -> tuple:
-    """Compute chunk size, mean and var."""
-    size = len(prices_squad)
-    if size:
-        mean = prices_sum / size
-    else:
-        return 0, 0, 0
-    var = sum(prices_squad) / size - mean**2  # fast var computing
-    return size, mean, var
+def calculate_static_params(size: int, prices_sum: int, prices_squad_sum: int):
+    """Calculate chunk mean, var"""
+    if not size:
+        return 0, 0
+    mean = prices_sum / size
+    var = prices_squad_sum / size - mean**2
+    return mean, var
 
 
 def get_line(lines):
@@ -34,21 +32,21 @@ def get_line(lines):
 
 def process_data():
     """Process input data."""
-    prices_sum, prices_squad = 0, []
+    size, prices_sum, prices_squad_sum = 0, 0, 0
     lines = get_line(stdin)
     for line in lines:
         try:
             price = process_line(line)
             prices_sum += price
-            prices_squad.append(price**2)
         except ValueError:
             continue
         except IndexError:
             continue
+        prices_squad_sum += price**2
+        size += 1
     # compute chunk size, mean, var
-    size, mean, var = compute_static_params(prices_sum, prices_squad)
-    print((size, mean, var), end="\t")
-    print(1)
+    mean, var = calculate_static_params(size, prices_sum, prices_squad_sum)
+    print(f"chunk\t{size}, {mean}, {var}")
 
 
 if __name__ == "__main__":
