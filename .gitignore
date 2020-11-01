@@ -3,7 +3,7 @@ book\*
 HW*.pdf
 *.odt
 Lesson_*.pdf
-hw_2/.ipynby_*
+.ipynb_checkpoints/
 *.csv
 test_*.py
 *.csv
