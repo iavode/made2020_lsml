@@ -3,7 +3,6 @@ book\*
 HW*.pdf
 *.odt
 Lesson_*.pdf
-*.ipynb
 hw_2/.ipynby_*
 *.csv
 test_*.py
