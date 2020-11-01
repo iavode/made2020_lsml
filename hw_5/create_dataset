@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct 22 11:52:08 2020
+
+@author: iavode
+"""
+from numpy import log
+from pandas import DataFrame
+
+from sklearn.preprocessing import MinMaxScaler, Normalizer
+from sklearn.datasets import load_boston
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import cross_val_score
+
+data = load_boston()
+names = data["feature_names"].tolist()
+y_true = data["target"]
+x_data = data["data"]
+dataframe = {name: x_data[:, i] for i, name in enumerate(names)}
+dataframe["MEDV"] = y_true
+names.append("MEDV")
+
+dataframe = DataFrame(dataframe)
+dataframe_norm = Normalizer().fit_transform(dataframe)
+dataframe_minmax = MinMaxScaler().fit_transform(dataframe)
+
+dataframe_norm = DataFrame(
+    {name: dataframe_norm[:, i] for i, name in enumerate(names)}
+)
+dataframe_minmax = DataFrame(
+    {name: dataframe_minmax[:, i] for i, name in enumerate(names)}
+)
+
+
+dataframe.to_csv("simple_dataset.csv", header=None, index=None)
+dataframe_norm.to_csv("norm_dataset.csv", header=None, index=None)
+dataframe_minmax.to_csv("minmax_dataset.csv", header=None, index=None)
+
+
+lm = LinearRegression(n_jobs=-1)
+score = cross_val_score(
+    estimator=lm, X=dataframe[names[:-1]], y=dataframe["MEDV"],
+    cv = 5, scoring="neg_mean_squared_error", n_jobs=(-1)).mean()
+print(f"simple: {score}")
+score = cross_val_score(
+    estimator=lm, X=dataframe_norm[names[:-1]], y=dataframe_norm["MEDV"],
+    cv = 5, scoring="neg_mean_squared_error", n_jobs=(-1)).mean()
+print(f"norm: {score}")
+score = cross_val_score(
+    estimator=lm, X=dataframe_minmax[names[:-1]], y=dataframe_minmax["MEDV"],
+    cv = 5, scoring="neg_mean_squared_error", n_jobs=(-1)).mean()
+print(f"minmax: {score}")
