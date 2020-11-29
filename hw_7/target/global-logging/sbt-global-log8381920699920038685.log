@@ -1,0 +1,103 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(early(addPluginSbtFile="""/tmp/idea1.sbt"""), None, None)
+[debug] > Exec(addPluginSbtFile="""/tmp/idea1.sbt""", None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.4.2 (Ubuntu Java 11.0.9.1)
+[debug]       Load.loadUnit: plugins took 84.716019ms
+[debug]       Load.loadUnit: defsScala took 0.237732ms
+[debug] [Loading] Scanning directory /home/iavode/.sbt/1.0/plugins
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/iavode/.sbt/1.0/plugins, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 14.29262 ms
+[debug]           Load.resolveProject(global-plugins) took 31.080058ms
+[debug]         Load.loadTransitive: finalizeProject(Project(id global-plugins, base: /home/iavode/.sbt/1.0/plugins, plugins: List(<none>))) took 62.93953ms
+[debug] [Loading] Done in /home/iavode/.sbt/1.0/plugins, returning: (global-plugins)
+[debug]       Load.loadUnit: loadedProjectsRaw took 76.819789ms
+[debug]       Load.loadUnit: cleanEvalClasses took 0.200025ms
+[debug]     Load.loadUnit(file:/home/iavode/.sbt/1.0/plugins/, ...) took 168.495374ms
+[debug]   Load.apply: load took 283.638623ms
+[debug]   Load.apply: resolveProjects took 4.865364ms
+[debug]   Load.apply: finalTransforms took 48.882435ms
+[debug]   Load.apply: config.delegates took 5.369919ms
+[debug]   Load.apply: Def.make(settings)... took 278.166271ms
+[debug]   Load.apply: structureIndex took 66.609943ms
+[debug]   Load.apply: mkStreams took 1.324268ms
+[info] loading global plugins from /home/iavode/.sbt/1.0/plugins
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Load.defaultLoad until apply took 1614.835023ms
+[debug]           Load.loadUnit: plugins took 9.932491ms
+[debug]           Load.loadUnit: defsScala took 0.002989ms
+[debug] [Loading] Scanning directory /home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7/project
+[debug]             Load.loadUnit: mkEval took 4.874841ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7/project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 1.644505 ms
+[info] loading settings for project hw_7-build from idea1.sbt ...
+[debug]               Load.resolveProject(hw_7-build) took 2.90775ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id hw_7-build, base: /home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7/project, plugins: List(<none>))) took 5.350631ms
+[debug] [Loading] Done in /home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7/project, returning: (hw_7-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 1660.594905ms
+[debug]           Load.loadUnit: cleanEvalClasses took 3.255781ms
+[debug]         Load.loadUnit(file:/home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7/project/, ...) took 1674.493433ms
+[debug]       Load.apply: load took 1675.86563ms
+[debug]       Load.apply: resolveProjects took 0.15979ms
+[debug]       Load.apply: finalTransforms took 10.255261ms
+[debug]       Load.apply: config.delegates took 0.335158ms
+[debug]       Load.apply: Def.make(settings)... took 86.108048ms
+[debug]       Load.apply: structureIndex took 20.54415ms
+[debug]       Load.apply: mkStreams took 0.003207ms
+[info] loading project definition from /home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7/project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 3637.751287ms
+[debug]     Load.loadUnit: defsScala took 0.004143ms
+[debug] [Loading] Scanning directory /home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7
+[debug]       Load.loadUnit: mkEval took 0.119609ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin))), Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(org.jetbrains.sbt.StructurePlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(org.jetbrains.sbt.IdeaShellPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.StructurePlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.IdeaShellPlugin))), Clause(And(Set(Atom(sbt.plugins.CorePlugin), Atom(sbt.plugins.JvmPlugin))),Set(Atom(org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin)))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.SemanticdbPlugin,org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin,sbt.plugins.JUnitXmlReportPlugin,org.jetbrains.sbt.IdeaShellPlugin,org.jetbrains.sbt.StructurePlugin,sbt.plugins.MiniDependencyTreePlugin)
+[debug] Plugins.deducer#function took 1.285526 ms
+[info] loading settings for project hw_7 from build.sbt ...
+[debug]         Load.resolveProject(hw_7) took 17.656115ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id hw_7, base: /home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7, plugins: List(<none>))) took 19.736807ms
+[debug] [Loading] Done in /home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7, returning: (hw_7)
+[debug]     Load.loadUnit: loadedProjectsRaw took 1088.749247ms
+[debug]     Load.loadUnit: cleanEvalClasses took 2.081245ms
+[debug]   Load.loadUnit(file:/home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7/, ...) took 4729.094049ms
+[debug] Load.apply: load took 4730.049044ms
+[debug] Load.apply: resolveProjects took 0.071356ms
+[debug] Load.apply: finalTransforms took 15.966173ms
+[debug] Load.apply: config.delegates took 0.217946ms
+[debug] Load.apply: Def.make(settings)... took 49.674596ms
+[debug] Load.apply: structureIndex took 37.186582ms
+[debug] Load.apply: mkStreams took 0.001536ms
+[info] set current project to LogReg (in build file:/home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(; set ideaPort in Global := 41757 ; idea-shell, None, None)
+[debug] > Exec(set ideaPort in Global := 41757, None, None)
+[info] Defining Global / ideaPort
+[info] The new value will be used by Compile / compile, Test / compile
+[debug] Defining 
+[debug] 	Global / ideaPort
+[debug] 
+[debug] The new value will be used by 
+[debug] 	Compile / compile
+[debug] 	Test / compile
+[info] Reapplying settings...
+[info] set current project to LogReg (in build file:/home/iavode/Desktop/MADE/3_semestr/made2020_lsml/hw_7/)
+[debug] > Exec(idea-shell, None, None)
