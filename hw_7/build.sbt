@@ -1,4 +1,4 @@
-name := "LigReg"
+name := "LinReg"
 
 version := "0.1"
 
