@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LogReg.iml" filepath="$PROJECT_DIR$/.idea/modules/LogReg.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LogReg-build.iml" filepath="$PROJECT_DIR$/.idea/modules/LogReg-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LinReg.iml" filepath="$PROJECT_DIR$/.idea/modules/LinReg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/LinReg-build.iml" filepath="$PROJECT_DIR$/.idea/modules/LinReg-build.iml" />
     </modules>
   </component>
 </project>
