@@ -8,7 +8,7 @@ Created on Thu Oct 22 11:52:08 2020
 from numpy import log
 from pandas import DataFrame
 
-from sklearn.preprocessing import MinMaxScaler, Normalizer
+from sklearn.preprocessing import MinMaxScaler, Normalizer, StandardScaler
 from sklearn.datasets import load_boston
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
@@ -19,35 +19,41 @@ names = data["feature_names"].tolist()
 y_true = data["target"]
 x_data = data["data"]
 dataframe = {name: x_data[:, i] for i, name in enumerate(names)}
-dataframe["MEDV"] = y_true
-names.append("MEDV")
 
 dataframe = DataFrame(dataframe)
-dataframe_norm = Normalizer().fit_transform(dataframe)
+dataframe_std = StandardScaler().fit_transform(dataframe)
 dataframe_minmax = MinMaxScaler().fit_transform(dataframe)
 
-dataframe_norm = DataFrame(
-    {name: dataframe_norm[:, i] for i, name in enumerate(names)}
+# names.append("MEDV")
+dataframe_std = DataFrame(
+    {name: dataframe_std[:, i] for i, name in enumerate(names)}
 )
 dataframe_minmax = DataFrame(
     {name: dataframe_minmax[:, i] for i, name in enumerate(names)}
 )
+dataframe["MEDV"] = y_true.copy()
+dataframe_std["MEDV"] = y_true
+dataframe_minmax["MEDV"] = y_true
 
+dataframe = dataframe.sample(frac=1, axis=0)
+dataframe_std = dataframe_std.sample(frac=1, axis=0)
+dataframe_minmax = dataframe_minmax.sample(frac=1, axis=0)
 
 dataframe.to_csv("simple_dataset.csv", header=None, index=None)
-dataframe_norm.to_csv("norm_dataset.csv", header=None, index=None)
+dataframe_std.to_csv("std_dataset.csv", header=None, index=None)
 dataframe_minmax.to_csv("minmax_dataset.csv", header=None, index=None)
-
 
 lm = LinearRegression(n_jobs=-1)
 score = cross_val_score(
     estimator=lm, X=dataframe[names[:-1]], y=dataframe["MEDV"],
     cv = 5, scoring="neg_mean_squared_error", n_jobs=(-1)).mean()
 print(f"simple: {score}")
+lm = LinearRegression(n_jobs=-1)
 score = cross_val_score(
-    estimator=lm, X=dataframe_norm[names[:-1]], y=dataframe_norm["MEDV"],
+    estimator=lm, X=dataframe_std[names[:-1]], y=dataframe_std["MEDV"],
     cv = 5, scoring="neg_mean_squared_error", n_jobs=(-1)).mean()
-print(f"norm: {score}")
+print(f"std: {score}")
+lm = LinearRegression(n_jobs=-1)
 score = cross_val_score(
     estimator=lm, X=dataframe_minmax[names[:-1]], y=dataframe_minmax["MEDV"],
     cv = 5, scoring="neg_mean_squared_error", n_jobs=(-1)).mean()
