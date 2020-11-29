@@ -1,4 +1,4 @@
-name := "LogReg"
+name := "LigReg"
 
 version := "0.1"
 
